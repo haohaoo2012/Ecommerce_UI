@@ -38,6 +38,7 @@ const App: FC = () => {
                     (<Route component={Account}/>) : (<Route component={HomePage}/>)}/>
                 <Route path="*" component={HomePage}/>
             </Switch>
+            
             <Footer/>
         </>
     );

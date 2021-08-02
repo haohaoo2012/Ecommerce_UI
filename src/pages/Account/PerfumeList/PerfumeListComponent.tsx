@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEdit, faList, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {LazyLoadImage} from "react-lazy-load-image-component";
-
 import usePagination from "../../../component/Pagination/usePagination";
 import {Perfume} from "../../../types/types";
 import Modal from "../../../component/Modal/Modal";

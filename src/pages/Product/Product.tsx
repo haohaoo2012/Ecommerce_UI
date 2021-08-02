@@ -140,7 +140,7 @@ const Product: FC<RouteComponentProps<{ id: string }>> = ({match}) => {
                             </tr>
                             <tr>
                                 <td>Volume:</td>
-                                <td><span>{perfume.volume}</span> ml.</td>
+                                <td><span>{perfume.volume}</span> ml</td>
                             </tr>
                             <tr>
                                 <td>Manufacturer country:</td>

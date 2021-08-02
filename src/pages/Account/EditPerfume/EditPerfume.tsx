@@ -181,12 +181,36 @@ const EditPerfume: FC<RouteComponentProps<{ id: string }>> = ({match}) => {
                             <div className="form-group row">
                                 <label className="col-sm-4 col-form-label font-weight-bold">Volume: </label>
                                 <div className="col-sm-8">
-                                    <input
-                                        type="text"
-                                        className={volumeError ? "form-control is-invalid" : "form-control"}
-                                        name="volume"
-                                        value={volume}
-                                        onChange={handleInputChange}/>
+                                     <select name="volume"
+                                            className={volumeError ? "form-control is-invalid" : "form-control"}
+                                            onChange={handleInputChange}>
+                                        {perfumeData.volume === "125" ?
+                                            <>
+                                                <option value={perfumeData.volume}>{perfumeData.volume}</option>
+                                                <option value="50">50</option>
+                                                <option value="65">65</option>
+                                                <option value="75">75</option>
+                                                <option value="90">90</option>
+                                                <option value="100">100</option>
+                                                <option value="175">175</option>
+                                                <option value="200">200</option>
+                                            </> :
+                                        
+                                            <>
+                                                <option value={perfumeData.volume}>{perfumeData.volume}</option>
+                                                <option value="50">50</option>
+                                                <option value="65">65</option>
+                                                <option value="75">75</option>
+                                                <option value="90">90</option>
+                                                <option value="100">100</option>
+                                                <option value="175">175</option>
+                                                <option value="125">125</option>
+                                                <option value="200">200</option>
+                                                
+                                                
+                                            </>}
+                                                                                       
+                                    </select> 
                                     <div className="invalid-feedback">{volumeError}</div>
                                 </div>
                             </div>

@@ -25,6 +25,7 @@ type InitialStateType = {
     perfumeRating: number
 };
 
+
 const AddPerfume: FC = () => {
     const dispatch = useDispatch();
     const isPerfumeAdded: boolean = useSelector((state: AppStateType) => state.admin.isPerfumeAdded);
@@ -45,7 +46,7 @@ const AddPerfume: FC = () => {
         file: "",
         perfumeRating: 0.0
     };
-
+ 
     const [{
         perfumeTitle,
         perfumer,
@@ -62,7 +63,7 @@ const AddPerfume: FC = () => {
         perfumeRating
     }, setState] = useState(initialState);
     const [showToast, setShowToast] = useState(false);
-
+    
     const {
         perfumeTitleError,
         perfumerError,
@@ -111,6 +112,7 @@ const AddPerfume: FC = () => {
         const {name, value} = event.target;
         setState(prevState => ({...prevState, [name]: value}));
     };
+  
 
     return (
         <>
@@ -133,13 +135,25 @@ const AddPerfume: FC = () => {
                         </div>
                         <div className="col">
                             <label>Brand: </label>
-                            <input
-                                type="text"
-                                className={perfumerError ? "form-control is-invalid" : "form-control"}
-                                name="perfumer"
-                                value={perfumer}
-                                placeholder="Enter the brand"
-                                onChange={handleInputChange}/>
+                                 <select name="perfumer"
+                                    className={perfumerError ? "form-control is-invalid" : "form-control"}
+                                    onChange={handleInputChange}> 
+                                <option hidden={true} value=""></option>
+                                <option value="Burberry">Burberry</option>
+                                <option value="Bvlgari">Bvlgari</option>
+                                <option value="Calvin Klein">Calvin Klein</option>
+                                <option value="Carolina Herrera">Carolina Herrera</option>
+                                <option value="Chanel">Chanel</option>
+                                <option value="Creed">Creed</option>
+                                <option value="Dior">Dior</option>
+                                <option value="Dolce&Gabbana">Dolce&Gabbana</option>
+                                <option value="Gucci">Gucci</option>
+                                <option value="Hugo Boss">Hugo Boss</option>
+                                <option value="Hermes">Hermes</option>
+                                <option value="Lancome">Lancome</option>
+                                <option value="Prada">Prada</option>
+                                <option value="Jean Paul Gaultier">Jean Paul Gaultier</option>
+                            </select>
                             <div className="invalid-feedback">{perfumerError}</div>
                         </div>
                     </div>
@@ -157,13 +171,18 @@ const AddPerfume: FC = () => {
                         </div>
                         <div className="col">
                             <label>Manufacturer country: </label>
-                            <input
-                                type="text"
-                                className={countryError ? "form-control is-invalid" : "form-control"}
-                                name="country"
-                                value={country}
-                                placeholder="Enter the manufacturer country"
-                                onChange={handleInputChange}/>
+                            <select name="country"
+                                    className={countryError ? "form-control is-invalid" : "form-control"}
+                                    onChange={handleInputChange}> 
+                                <option hidden={true} value=""></option>
+                                <option value="USA">USA</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Great Britain">Great Britain</option>
+                                <option value="Spain">Spain</option>
+                                <option value="France">France</option>
+                                <option value="VietNam">VietNam</option>
+                            </select>
                             <div className="invalid-feedback">{countryError}</div>
                         </div>
                     </div>
@@ -181,13 +200,18 @@ const AddPerfume: FC = () => {
                         </div>
                         <div className="col">
                             <label>Volume: </label>
-                            <input
-                                type="text"
-                                className={volumeError ? "form-control is-invalid" : "form-control"}
-                                name="volume"
-                                value={volume}
-                                placeholder="Enter the volume"
-                                onChange={handleInputChange}/>
+                                 <select name="volume"
+                                    className={volumeError ? "form-control is-invalid" : "form-control"}
+                                    onChange={handleInputChange}> 
+                                <option hidden={true} value=""></option>
+                                <option value="65">65</option>
+                                <option value="75">75</option>
+                                <option value="90">90</option>
+                                <option value="100">100</option>
+                                <option value="125">125</option>
+                                <option value="175">175</option>
+                                <option value="200">200</option>
+                            </select>
                             <div className="invalid-feedback">{volumeError}</div>
                         </div>
                     </div>
@@ -243,6 +267,7 @@ const AddPerfume: FC = () => {
                         <div className="col">
                             <label>Price: </label>
                             <input
+                                id="price"
                                 type="text"
                                 className={priceError ? "form-control is-invalid" : "form-control"}
                                 name="price"
@@ -251,14 +276,17 @@ const AddPerfume: FC = () => {
                                 onChange={handleInputChange}/>
                             <div className="invalid-feedback">{priceError}</div>
                         </div>
-                        <div className="col" style={{marginTop: "35px"}}>
-                            <input type="file"
+                        <div  className="col" style={{marginTop: "35px"}}>
+                            <input
+                                   type="file"
                                    name="file"
                                    onChange={handleFileChange}/>
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-dark mt-3">
+                    <button id="submit" type="submit" className="btn btn-dark mt-3">
                         <FontAwesomeIcon className="mr-2" icon={faPlusSquare}/>Add
+                       
+   
                     </button>
                 </form>
             </div>
